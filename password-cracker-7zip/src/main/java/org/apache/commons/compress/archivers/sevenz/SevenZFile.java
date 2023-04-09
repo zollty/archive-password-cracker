@@ -55,36 +55,10 @@ import org.apache.commons.compress.utils.InputStreamStatistics;
 /**
  * Reads a 7z file, using SeekableByteChannel under
  * the covers.
- * <p>
- * The 7z file format is a flexible container
- * that can contain many compression and
- * encryption types, but at the moment only
- * only Copy, LZMA, LZMA2, BZIP2, Deflate and AES-256 + SHA-256
- * are supported.
- * <p>
- * The format is very Windows/Intel specific,
- * so it uses little-endian byte order,
- * doesn't store user/group or permission bits,
- * and represents times using NTFS timestamps
- * (100 nanosecond units since 1 January 1601).
- * Hence the official tools recommend against
- * using it for backup purposes on *nix, and
- * recommend .tar.7z or .tar.lzma or .tar.xz
- * instead.
- * <p>
- * Both the header and file contents may be
- * compressed and/or encrypted. With both
- * encrypted, neither file names nor file
- * contents can be read, but the use of
- * encryption isn't plausibly deniable.
- *
- * <p>Multi volume archives can be read by concatenating the parts in
- * correct order - either manually or by using {link
- * org.apache.commons.compress.utils.MultiReadOnlySeekableByteChannel}
- * for example.</p>
  *
  * @NotThreadSafe
  * @since 1.6
+ * @author zollty
  */
 public class SevenZFile implements Closeable {
     static final int SIGNATURE_HEADER_SIZE = 32;
