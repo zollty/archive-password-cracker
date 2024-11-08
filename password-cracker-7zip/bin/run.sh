@@ -1,0 +1,1 @@
+nohup java -Xms1024m -Xmx2048m -jar cracker-7zip-last.jar "/root/tools/7zcracker.7z" "/root/tools/dict.txt" > bin2 &

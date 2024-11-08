@@ -6,7 +6,7 @@ src/test
 
 *.ffs_db
 .metadata
-bin/
+# bin/
 tmp/
 *.tmp
 *.bak
